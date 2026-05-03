@@ -82,7 +82,7 @@ export default function ExplorePage() {
         ) : videos.length === 0 ? (
           <div className="text-center py-20 bg-zinc-900/30 rounded-3xl border border-zinc-900 border-dashed">
             <Search size={40} className="mx-auto text-zinc-700 mb-4" />
-            <p className="text-zinc-500">No videos found for "{query || activeCategory}"</p>
+            <p className="text-zinc-500">No videos found for &quot;{query || activeCategory}&quot;</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
