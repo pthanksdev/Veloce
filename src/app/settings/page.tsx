@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { User, Bell, Shield, Wallet, Globe, Moon, Save, Camera, Loader2 } from "lucide-react";
+import { User, Bell, Shield, Globe, Moon, Save, Camera, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -63,7 +63,7 @@ export default function SettingsPage() {
                   </div>
                   <CldUploadWidget 
                     uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
-                    onSuccess={(result: any) => {
+                    onSuccess={(result) => {
                       if (result.info && typeof result.info !== 'string') {
                         setImage(result.info.secure_url);
                       }
@@ -156,7 +156,7 @@ export default function SettingsPage() {
   );
 }
 
-function SettingsNavItem({ icon: Icon, label, active }: { icon: any, label: string, active?: boolean }) {
+function SettingsNavItem({ icon: Icon, label, active }: { icon: React.ElementType, label: string, active?: boolean }) {
   return (
     <button className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition-all ${
       active ? "bg-zinc-800 text-white shadow-xl shadow-black/20 border border-zinc-700" : "text-zinc-500 hover:bg-zinc-900 hover:text-zinc-300"

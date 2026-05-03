@@ -5,13 +5,15 @@ import { Plus, Play, Clock, MoreVertical, TrendingUp, Loader2 } from "lucide-rea
 import UploadModal from "@/components/video/UploadModal";
 import Link from "next/link";
 import axios from "axios";
+import { Video } from "@/types";
+import { useCallback } from "react";
 
 export default function DashboardPage() {
   const [isUploadOpen, setIsUploadOpen] = useState(false);
-  const [videos, setVideos] = useState<any[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchVideos = async () => {
+  const fetchVideos = useCallback(async () => {
     try {
       const response = await axios.get("/api/videos");
       setVideos(response.data);
@@ -20,11 +22,11 @@ export default function DashboardPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchVideos();
-  }, []);
+  }, [fetchVideos]);
 
   return (
     <div className="space-y-10">
@@ -99,7 +101,7 @@ export default function DashboardPage() {
   );
 }
 
-function VideoCard({ video }: { video: any }) {
+function VideoCard({ video }: { video: Video }) {
   return (
     <Link href={`/watch/${video.id}`} className="group cursor-pointer block">
       <div className="relative aspect-video rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 mb-3 group-hover:border-indigo-500/50 transition-all shadow-xl">
