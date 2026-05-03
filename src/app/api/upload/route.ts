@@ -39,8 +39,8 @@ export async function POST(req: NextRequest) {
 
     // Save file to disk
     const stream = file.stream();
-    // @ts-ignore - ReadableStream to Node Readable conversion
-    await pump(stream, fs.createWriteStream(filePath));
+    // @ts-expect-error - ReadableStream to Node Readable conversion
+    await pump(stream as any, fs.createWriteStream(filePath));
 
     // Create DB record
     const video = await prisma.video.create({

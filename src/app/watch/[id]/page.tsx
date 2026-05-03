@@ -5,10 +5,11 @@ import { useParams } from "next/navigation";
 import HlsPlayer from "@/components/video/HlsPlayer";
 import { ThumbsUp, ThumbsDown, Share2, MoreHorizontal, UserPlus } from "lucide-react";
 import axios from "axios";
+import { Video } from "@/types";
 
 export default function WatchPage() {
   const { id } = useParams();
-  const [video, setVideo] = useState<any>(null);
+  const [video, setVideo] = useState<Video | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
