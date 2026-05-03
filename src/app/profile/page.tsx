@@ -6,27 +6,30 @@ import { Video, List, Edit3, Settings, Play, MoreVertical } from "lucide-react";
 import Link from "next/link";
 import axios from "axios";
 
+import { Video as VideoType } from "@/types";
+import { useCallback } from "react";
+
 export default function ProfilePage() {
   const { data: session } = useSession();
-  const [userVideos, setUserVideos] = useState<any[]>([]);
+  const [userVideos, setUserVideos] = useState<VideoType[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<"videos" | "playlists">("videos");
 
-  useEffect(() => {
-    const fetchUserVideos = async () => {
-      if (!session?.user) return;
-      try {
-        const response = await axios.get("/api/videos/user");
-        setUserVideos(response.data);
-      } catch (error) {
-        console.error("Failed to fetch user videos:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUserVideos();
+  const fetchUserVideos = useCallback(async () => {
+    if (!session?.user) return;
+    try {
+      const response = await axios.get("/api/videos/user");
+      setUserVideos(response.data);
+    } catch (error) {
+      console.error("Failed to fetch user videos:", error);
+    } finally {
+      setLoading(false);
+    }
   }, [session]);
+
+  useEffect(() => {
+    fetchUserVideos();
+  }, [fetchUserVideos]);
 
   return (
     <div className="max-w-6xl mx-auto space-y-10">
@@ -137,7 +140,7 @@ function TabButton({ active, onClick, icon, label }: { active: boolean, onClick:
   );
 }
 
-function VideoItem({ video }: { video: any }) {
+function VideoItem({ video }: { video: VideoType }) {
   return (
     <div className="group cursor-pointer">
       <div className="relative aspect-video rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 mb-3 group-hover:border-indigo-500/50 transition-all shadow-xl">
