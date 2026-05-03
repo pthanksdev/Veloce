@@ -6,11 +6,14 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 
+import { Video } from "@/types";
+import { useCallback } from "react";
+
 export default function ExplorePage() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q") || "";
   const [activeCategory, setActiveCategory] = useState(query ? "Search Results" : "Trending");
-  const [videos, setVideos] = useState<any[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
 
   const categories = [
@@ -22,25 +25,25 @@ export default function ExplorePage() {
     { name: "News", icon: <Newspaper size={20} /> },
   ];
 
-  useEffect(() => {
-    const fetchVideos = async () => {
-      setLoading(true);
-      try {
-        const url = query 
-          ? `/api/videos/search?q=${encodeURIComponent(query)}`
-          : `/api/videos?status=COMPLETED`;
-        const response = await axios.get(url);
-        setVideos(response.data);
-      } catch (error) {
-        console.error("Failed to fetch videos:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchVideos = useCallback(async () => {
+    setLoading(true);
+    try {
+      const url = query 
+        ? `/api/videos/search?q=${encodeURIComponent(query)}`
+        : `/api/videos?status=COMPLETED`;
+      const response = await axios.get(url);
+      setVideos(response.data);
+    } catch (error) {
+      console.error("Failed to fetch videos:", error);
+    } finally {
+      setLoading(false);
+    }
+  }, [query]);
 
+  useEffect(() => {
     fetchVideos();
     if (query) setActiveCategory("Search Results");
-  }, [query]);
+  }, [fetchVideos, query]);
 
   return (
     <div className="space-y-10">
@@ -96,7 +99,7 @@ export default function ExplorePage() {
   );
 }
 
-function ExploreVideoCard({ video }: { video: any }) {
+function ExploreVideoCard({ video }: { video: Video }) {
   return (
     <Link href={`/watch/${video.id}`} className="group cursor-pointer block">
       <div className="relative aspect-video rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 mb-3 group-hover:border-indigo-500/50 transition-all shadow-xl">
