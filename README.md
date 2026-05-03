@@ -276,5 +276,5 @@ If you discover a security vulnerability within Veloce, please send an e-mail to
 
 ---
 
-**Built with ❤️ by Tessy**
+**Built by Tessy**
 # Veloce
