@@ -148,7 +148,7 @@ function CommentItem() {
   return (
     <div className="flex gap-4 group">
       <div className="w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700 overflow-hidden flex-shrink-0">
-        <img src={`https://i.pravatar.cc/150?u=user-${Math.floor(Math.random() * 1000)}`} alt="User" />
+        <img src={`https://i.pravatar.cc/150?u=user-comment`} alt="User" />
       </div>
       <div className="flex-1 space-y-1">
         <div className="flex items-center gap-2">
@@ -175,7 +175,7 @@ function SuggestionCard() {
   return (
     <div className="flex gap-3 group cursor-pointer">
       <div className="relative w-40 aspect-video rounded-xl overflow-hidden flex-shrink-0 bg-zinc-900 border border-zinc-800 group-hover:border-indigo-500/50 transition-all">
-        <img src={`https://picsum.photos/seed/suggest-${Math.floor(Math.random() * 1000)}/320/180`} alt="Thumb" className="w-full h-full object-cover" />
+        <img src={`https://picsum.photos/seed/suggest/320/180`} alt="Thumb" className="w-full h-full object-cover" />
         <div className="absolute bottom-1 right-1 px-1 py-0.5 bg-black/80 rounded text-[9px] font-bold text-white">
           10:05
         </div>
