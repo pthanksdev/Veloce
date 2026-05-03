@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
-const SidebarItem = ({ icon: Icon, label, href, active, onClick }: { icon: any, label: string, href: string, active?: boolean, onClick?: () => void }) => (
+const SidebarItem = ({ icon: Icon, label, href, active, onClick }: { icon: React.ElementType, label: string, href: string, active?: boolean, onClick?: () => void }) => (
   <Link 
     href={href}
     onClick={onClick}
