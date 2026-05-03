@@ -37,7 +37,7 @@ function HistoryItem() {
   return (
     <div className="flex flex-col sm:flex-row gap-6 p-4 rounded-3xl hover:bg-zinc-900/50 transition-all border border-transparent hover:border-zinc-800 group">
       <div className="relative w-full sm:w-64 aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 flex-shrink-0 group-hover:border-indigo-500/50 transition-all">
-        <img src={`https://picsum.photos/seed/${Math.random()}/640/360`} alt="Thumb" className="w-full h-full object-cover" />
+        <img src={`https://picsum.photos/seed/history-item/640/360`} alt="Thumb" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-zinc-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
           <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
             <Play size={20} className="text-white fill-white ml-0.5" />

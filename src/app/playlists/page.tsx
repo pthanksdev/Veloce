@@ -32,7 +32,7 @@ function PlaylistCard() {
     <div className="group cursor-pointer">
       <div className="relative aspect-video rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900 mb-4 group-hover:border-indigo-500/50 transition-all shadow-2xl">
         <img 
-          src={`https://picsum.photos/seed/${Math.random()}/640/360`} 
+          src={`https://picsum.photos/seed/playlist-cover/640/360`} 
           alt="Playlist Cover" 
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
