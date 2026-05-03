@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import Sidebar from "@/components/Sidebar";
-import { Search, Bell, User, Menu, X } from "lucide-react";
+import { Search, Bell, User, Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { redirect, useRouter } from "next/navigation";
-import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 export default function AppLayout({

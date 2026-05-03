@@ -191,7 +191,7 @@ Update the authenticated user's profile.
 ## 🎨 Design System & UI
 
 ### 💎 Aesthetics
-NexusStream utilizes a "Glass-Dark" design system:
+Veloce utilizes a "Glass-Dark" design system:
 - **Glassmorphism**: `backdrop-blur-xl` combined with low-opacity backgrounds (`bg-zinc-900/40`) to create depth.
 - **Glow Effects**: Indigo-colored accent glows (`blur-[120px]`) behind major sections.
 - **Typography**: `Inter` font family for clarity, with `Black` weight for impactful headers.
@@ -213,7 +213,7 @@ NexusStream utilizes a "Glass-Dark" design system:
 ### 2. Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/nexusstream.git
+git clone https://github.com/yourusername/veloce.git
 
 # Install all dependencies
 npm install
@@ -272,7 +272,7 @@ This usually means the upload is complete and the server is now transcoding the 
 We are committed to providing a friendly, safe, and welcoming environment for all. Please be respectful and constructive in your feedback and contributions.
 
 ### 🔐 Security Policy
-If you discover a security vulnerability within NexusStream, please send an e-mail to security@nexusstream.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Veloce, please send an e-mail to security@veloce.com.
 
 ---
 
