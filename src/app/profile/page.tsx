@@ -89,7 +89,7 @@ export default function ProfilePage() {
               </div>
             ) : userVideos.length === 0 ? (
               <div className="col-span-full py-20 text-center bg-zinc-900/30 rounded-3xl border border-zinc-800 border-dashed">
-                <p className="text-zinc-500">You haven't uploaded any videos yet.</p>
+                <p className="text-zinc-500">You haven&apos;t uploaded any videos yet.</p>
               </div>
             ) : (
               userVideos.map((video) => (
